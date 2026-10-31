@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Julian Bushlow — electrical and computer engineering student at Cornell University.">
+  <title>Julian Bushlow</title>
+  <link rel="stylesheet" href="./style.css?v=3">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <img class="portrait" src="assets/julian-bushlow-portrait.jpg" alt="Portrait of Julian Bushlow" width="260" height="312">
+
+      <div class="intro-text">
+        <h1>Julian Bushlow</h1>
+        <p class="affiliation">Electrical and Computer Engineering<br>Cornell University</p>
+        <p class="contact">jb2698 [at] cornell.edu</p>
+
+        <div class="social-links" aria-label="Links">
+          <a class="social-icon" href="https://github.com/jbushlow" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true" focusable="false" fill="currentColor">
+              <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.75-.24.75-.53v-2.05c-3.05.66-3.7-1.3-3.7-1.3-.5-1.27-1.22-1.6-1.22-1.6-.99-.68.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.68 2.57 1.2 3.2.91.1-.71.38-1.2.69-1.47-2.44-.28-5-1.22-5-5.45 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.4.11-2.9 0 0 .92-.29 3.02 1.12a10.52 10.52 0 0 1 5.5 0c2.1-1.41 3.01-1.12 3.01-1.12.61 1.5.23 2.62.12 2.9.71.77 1.13 1.75 1.13 2.95 0 4.24-2.57 5.17-5.02 5.44.4.34.74 1 .74 2.02V22c0 .29.2.64.76.53A11.1 11.1 0 0 0 12 .9Z"/>
+            </svg>
+          </a>
+          <a class="social-icon" href="https://www.linkedin.com/in/julian-bushlow/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true" focusable="false" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.036-1.852-3.036-1.853 0-2.136 1.445-2.136 2.939v5.666H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.368-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/>
+            </svg>
+          </a>
+          <a class="cv-button" href="assets/julian-bushlow-cv.pdf" aria-label="View CV (PDF)" title="View CV (PDF)" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M13.5 2.5H6.5A2.5 2.5 0 0 0 4 5v14a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 19V9l-6.5-6.5Z"/>
+              <path d="M13 2.5V9h7M8 13h8M8 17h6"/>
+            </svg>
+            <span>CV</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="about">
+      <p> I'm currently a senior studying Electrical and Computer Engineering at Cornell University, where I am lucky to be advised by Prof. <a href="https://www.csl.cornell.edu/~zhiruz/" target="_blank" rel="noopener noreferrer">Zhiru Zhang</a> and Prof. <a href="https://abdelfattah-lab.github.io/" target="_blank" rel="noopener noreferrer">Mohamed Abdelfattah</a>. Outside of work, I enjoy playing ping pong, board games, and soccer, as well as baking and music (I play percussion). I'm also a big reader so feel free to reach out if you have recommendations! </p>
+      <p>My research focuses on computer architecture and efficient computing. I'm interested in how computational models, architectures, and physical implementations shape one another, especially for brain-inspired and adaptive systems. I work on specialized hardware and tools that make these systems easier to generate, evaluate, and implement.</p>
+    </div>
+
+    <section class="section" id="research">
+      <h2>Research &amp; Projects</h2>
+
+      <article class="entry">
+        <h3>Allo-Assisted ASIC Harness (AAAH)</h3>
+        <p class="entry-subtitle">Zhang Research Group · Cornell University</p>
+        <p>I extended <a href="https://github.com/cornell-zhang/allo" target="_blank" rel="noopener noreferrer">Allo</a> to generate hierarchical ASIC implementations using information from its intermediate representation. The flow groups processing elements by function and connectivity, physically implements one representative from each group, and tiles the resulting macros automatically. On a 16 × 16 matrix-multiplication array, it reduced place-and-route runtime by more than 4× and peak memory use by over half; it also completed a 32 × 32 design that exhausted memory in a conventional flat flow.</p>
+        <div class="project-gallery">
+          <figure class="project-media project-media-wide project-media-allo-flow">
+            <img src="assets/aaah-asic-flow.png" alt="Flowchart of the hierarchical AAAH ASIC implementation flow" width="1187" height="303" loading="lazy">
+            <figcaption>Hierarchical ASIC implementation flow.</figcaption>
+          </figure>
+          <div class="project-media-row">
+            <figure class="project-media">
+              <img src="assets/aaah-pe-reuse.png" alt="Diagram showing processing elements reused across a spatial array" width="566" height="393" loading="lazy">
+              <figcaption>Processing-element reuse across a spatial array.</figcaption>
+            </figure>
+            <figure class="project-media">
+              <img src="assets/aaah-16x16-pe-array.png" alt="Physical design view of a 16 by 16 processing-element array in Cadence Innovus" width="386" height="400" loading="lazy">
+              <figcaption>Physical design of a 16 × 16 processing-element array.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3>Double Duty: FPGA Logic Block Architecture</h3>
+        <p class="entry-subtitle">Abdelfattah Lab · Cornell Tech</p>
+        <p>Double Duty modifies FPGA logic blocks so that lookup tables and adder chains can operate independently and concurrently. For the journal extension, I analyzed input utilization and developed four input-sharing variants that reduce the architecture's added routing hardware while trading off area, timing, and packing flexibility. The full architecture improved area-delay product by 9.7% on average across three benchmark suites. <a href="https://doi.org/10.1145/3834569" target="_blank" rel="noopener noreferrer">Paper</a></p>
+        <div class="project-gallery project-gallery-double-duty">
+          <figure class="project-media">
+            <img src="assets/double-duty-logic-module.png" alt="Double Duty FPGA arithmetic logic module architecture with added shared inputs" width="1736" height="1150" loading="lazy">
+            <figcaption>Arithmetic logic module with added shared inputs.</figcaption>
+          </figure>
+          <figure class="project-media">
+            <img src="assets/double-duty-crossbar.png" alt="Double Duty logic block showing the added crossbar inputs" width="728" height="848" loading="lazy">
+            <figcaption>Local crossbar extension for the additional inputs.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3>Microemboli Detection with Transcranial Doppler</h3>
+        <p class="entry-subtitle">Abdelfattah Lab · Cornell Tech / Weill Cornell Medicine</p>
+        <p>I helped launch a collaboration with Weill Cornell Medicine to develop a portable transcranial Doppler system for automatically detecting emboli. I built a parameterized signal-processing pipeline for raw ultrasound echoes and a simulation framework that models blood flow, scatterer motion, and echo generation. The synthetic data provided a way to test the pipeline before patient data was available and demonstrated that it could distinguish simulated embolic events from noise.</p>
+        <div class="project-gallery">
+          <figure class="project-media project-media-wide">
+            <img src="assets/microemboli-pipeline.png" alt="Signal-processing pipeline from phased-array ultrasound acquisition to emboli detection" width="1604" height="286" loading="lazy">
+            <figcaption>Signal-processing pipeline from acquisition through emboli detection.</figcaption>
+          </figure>
+          <div class="project-media-row">
+            <figure class="project-media">
+              <img src="assets/microemboli-a-mode.png" alt="A-mode trace extracted from simulated M-mode ultrasound data" width="993" height="640" loading="lazy">
+              <figcaption>A-mode trace extracted from simulated M-mode data.</figcaption>
+            </figure>
+            <figure class="project-media">
+              <img src="assets/microemboli-scatterers.gif" alt="Animation of simulated microemboli scatterers moving through a vessel" width="520" height="600" loading="lazy">
+              <figcaption>Simulated scatterer motion used to generate ultrasound echoes.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3>Spiking Neural Network ASIC</h3>
+        <p class="entry-subtitle">ECE 6745 · Cornell University</p>
+        <p>I co-designed a hardware-friendly leaky integrate-and-fire neuron model and a programmable accelerator for spiking neural network inference. I later expanded the project into a framework that generates networks, controllers, memory interfaces, randomized tests, and hierarchical ASIC layouts from a small set of parameters. We taped out a two-layer, eight-neuron design in TSMC 180 nm and trained a hardware-aware N-MNIST classifier to evaluate the system.</p>
+        <div class="project-gallery">
+          <div class="project-media-row project-media-row-snn">
+            <figure class="project-media">
+              <img src="assets/snn-tapeout-innovus.png" alt="Innovus placement view of the taped-out spiking neural network chip with subsystems highlighted by color" width="894" height="896" loading="lazy">
+              <figcaption>Tapeout chip placement in Innovus, colored by subsystem.</figcaption>
+            </figure>
+            <figure class="project-media">
+              <img src="assets/snn-tapeout-klayout.png" alt="KLayout view of the final spiking neural network chip layout and pad ring" width="1149" height="1151" loading="lazy">
+              <figcaption>Final chip layout and pad ring in KLayout.</figcaption>
+            </figure>
+          </div>
+          <figure class="project-media project-media-snn-hierarchy">
+            <img src="assets/snn-hierarchical-routing.png" alt="Top-level placement and routing of a generated spiking neural network with macros arranged by layer" width="897" height="624" loading="lazy">
+            <figcaption>Top-level placement and routing of a generated network using hierarchical layer macros.</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="publications">
+      <h2>Publications</h2>
+      <p class="publication"><strong>FPGA Architectures to Enable Concurrent LUT and Adder Chain Usage.</strong><br>
+        X. Dai, J. Pun, A. Y. Fei, <strong>J. Bushlow</strong>,  G. Zgheib, M. A. Iyer, M. Eldafrawy, A. Boutros, V. Betz, and M. S. Abdelfattah.<br>
+        <em>ACM Transactions on Reconfigurable Technology and Systems (TRETS)</em>, 2026. <a href="https://doi.org/10.1145/3834569" target="_blank" rel="noopener noreferrer">[paper]</a>
+      </p>
+    </section>
+
+    <section class="section compact" id="teaching">
+      <h2>Teaching</h2>
+      <p><strong>ECE 3100 — Introduction to Probability</strong> · Teaching Assistant, 2026 · Led a weekly discussion section and wrote class reference solutions.</p>
+      <p><strong>ECE 2100 — Introduction to Circuits</strong> · Teaching Assistant, 2025 · Supported laboratory sessions, discussion sections, and office hours.</p>
+    </section>
+
+    <section class="section compact" id="honors">
+      <h2>Honors &amp; Awards</h2>
+      <p>Tau Beta Pi · Cornell Engineering</p>
+      <p>Eta Kappa Nu · IEEE honor society</p>
+      <p>Best Project/Presentation · CS 4782 SpikeGPT project</p>
+    </section>
+
+    <footer>Last updated October 2026</footer>
+  </main>
+</body>
+</html>
