@@ -4,9 +4,12 @@
  * Edit the color variables here to change the site's palette.
  */
 :root {
-  --background: #eff7ff;  /* pale blue, close to white */
-  --text: #171a1f;        /* near black */
-  --link: #225a8e;        /* dark blue */
+  --background: #e8f1fa;
+  --text: #18232e;
+  --heading: #193f68;
+  --link: #246294;
+  --link-hover: #123e62;
+  --secondary: #345a7c;
   --muted: #53677b;
   --border: #d7e5f1;
 }
@@ -24,12 +27,14 @@ body {
 }
 
 .page {
-  width: min(100% - 48px, 840px);
+  width: calc(100% - 48px);
+  max-width: 1080px;
   margin: 0 auto;
   padding: 60px 0 64px;
 }
 
 h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { color: var(--heading); }
 h1 {
   margin-bottom: 8px;
   font-size: clamp(30px, 4.5vw, 38px);
@@ -56,28 +61,30 @@ a {
   text-decoration-color: #8db2d1;
   text-underline-offset: 3px;
 }
-a:hover { color: #133c63; text-decoration-color: currentColor; }
+a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
 
-/* Intro: bio on left, portrait on right. */
+/* Intro: portrait on left, identifying information on right. */
 .intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-  gap: 36px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 38px;
   align-items: start;
   margin-bottom: 35px;
 }
 .intro-text { min-width: 0; }
 .portrait {
   display: block;
-  width: 190px;
-  height: 190px;
+  width: 260px;
+  height: 312px;
+  max-width: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  object-position: center top;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: #e2edf7;
 }
-.affiliation { margin-bottom: 8px; line-height: 1.5; }
+.affiliation { margin-bottom: 8px; color: var(--secondary); line-height: 1.5; }
 .contact { margin-bottom: 10px; color: var(--muted); font-size: 14px; }
 
 .social-links { display: flex; align-items: center; gap: 17px; margin-bottom: 24px; }
@@ -88,27 +95,32 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-ra
   text-decoration: none;
   line-height: 1;
 }
-.social-links .social-icon:hover { color: #133c63; }
+.social-links .social-icon:hover { color: var(--link-hover); }
 .cv-button {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 4px 9px;
-  border: 1px solid #bfd5e8;
+  border: 1px solid var(--link);
   border-radius: 5px;
-  color: var(--link);
+  color: #fff;
+  background: var(--link);
   font-weight: 600;
   font-size: 13px;
   line-height: 1.3;
   text-decoration: none;
 }
-.cv-button:hover { background: #e1effa; }
+.cv-button:hover {
+  color: #fff;
+  background: var(--link-hover);
+  border-color: var(--link-hover);
+}
 .about p:last-child { margin-bottom: 0; }
 
 .section { margin-top: 36px; }
 .entry { margin-bottom: 28px; }
 .entry:last-child { margin-bottom: 0; }
-.entry-subtitle { margin: 2px 0 8px; font-size: 14px; color: var(--muted); }
+.entry-subtitle { margin: 2px 0 8px; font-size: 14px; color: var(--secondary); }
 .entry p { margin-bottom: 0; }
 .publication { line-height: 1.7; }
 .compact p { margin-bottom: 7px; }
@@ -132,7 +144,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-ra
   grid-template-columns: minmax(0, 1.6fr) minmax(240px, .85fr);
   align-items: start;
 }
-.project-media { min-width: 0; margin: 0; }
+.project-media { min-width: 0; max-width: 100%; margin: 0; }
 .project-media-allo-flow {
   width: 75%;
   margin-inline: auto;
@@ -144,6 +156,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-ra
 .project-media img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   aspect-ratio: auto;
   object-fit: contain;
@@ -169,119 +182,6 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-ra
 
 footer { margin-top: 54px; color: var(--muted); font-size: 12px; }
 
-@media (max-width: 620px) {
-  .page { width: min(100% - 34px, 840px); padding: 34px 0 48px; }
-  /* On narrow screens, the bio spans the full width below the photo. */
-  .intro { display: block; position: relative; margin-bottom: 30px; }
-  .portrait { position: absolute; top: 0; right: 0; width: 126px; height: 126px; }
-  h1, .affiliation, .contact, .social-links { max-width: calc(100% - 148px); }
-  h1 { font-size: 29px; }
-  .affiliation { font-size: 14px; }
-  .contact { font-size: 13px; }
-  .social-links { gap: 13px; margin-bottom: 20px; }
-  .about { margin-top: 24px; }
-  .social-links .social-icon svg { width: 21px; height: 21px; }
-  .section { margin-top: 31px; }
-  .section h2 { font-size: 21px; margin-bottom: 16px; }
-}
-
-@media (max-width: 410px) {
-  .portrait { width: 100px; height: 100px; }
-  h1, .affiliation, .contact, .social-links { max-width: calc(100% - 115px); }
-  h1 { font-size: 26px; }
-  .affiliation { font-size: 12px; }
-  .cv-button { padding: 3px 7px; }
-}
-
-
-/* Wider page layout */
-.page {
-  width: calc(100% - 48px);
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-/* Background and main text */
-body {
-  background-color: #e8f1fa;
-  color: #18232e;
-}
-
-/* Dark blue headings */
-h1, h2, h3 {
-  color: #193f68;
-}
-
-/* Secondary headings and descriptive text */
-.affiliation,
-.entry-subtitle {
-  color: #345a7c;
-}
-
-/* Blue links */
-a {
-  color: #246294;
-}
-
-a:hover {
-  color: #123e62;
-}
-
-/* Wider content */
-.intro-text,
-.about,
-.section,
-.entry {
-  max-width: none;
-}
-
-/* Intro with a larger rectangular portrait on the left */
-.intro {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  align-items: start;
-  gap: 38px;
-}
-
-.intro-text {
-  min-width: 0;
-}
-
-.intro .portrait {
-  width: 260px;
-  height: 312px;
-  max-width: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 8px;
-}
-
-/* Solid CV button with white icon and label */
-.cv-button {
-  color: #fff;
-  background: #246294;
-  border-color: #246294;
-}
-
-.cv-button:hover {
-  color: #fff;
-  background: #123e62;
-  border-color: #123e62;
-}
-
-/* Project images fill the available width */
-.project-media {
-  max-width: 100%;
-}
-
-.project-media img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Mobile layout */
 @media (max-width: 700px) {
   .page {
     width: calc(100% - 32px);
@@ -297,16 +197,22 @@ a:hover {
     height: 216px;
   }
 
-  h1,
-  .affiliation,
-  .contact,
-  .social-links {
-    max-width: none;
-  }
-
   .project-gallery-double-duty {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 620px) {
+  .page { padding: 34px 0 48px; }
+  .intro { margin-bottom: 30px; }
+  h1 { font-size: 29px; }
+  .affiliation { font-size: 14px; }
+  .contact { font-size: 13px; }
+  .social-links { gap: 13px; margin-bottom: 20px; }
+  .about { margin-top: 24px; }
+  .social-links .social-icon svg { width: 21px; height: 21px; }
+  .section { margin-top: 31px; }
+  .section h2 { font-size: 21px; margin-bottom: 16px; }
 }
 
 @media (max-width: 520px) {
@@ -316,7 +222,6 @@ a:hover {
   }
 
   .intro .portrait {
-    position: static;
     width: 180px;
     height: 216px;
   }
@@ -337,4 +242,10 @@ a:hover {
   .project-gallery-double-duty .project-media img {
     height: 240px;
   }
+}
+
+@media (max-width: 410px) {
+  h1 { font-size: 26px; }
+  .affiliation { font-size: 12px; }
+  .cv-button { padding: 3px 7px; }
 }

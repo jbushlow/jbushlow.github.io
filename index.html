@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Julian Bushlow — electrical and computer engineering student at Cornell University.">
+  <meta name="description" content="Julian Bushlow — ECE at Cornell University.">
   <title>Julian Bushlow</title>
-  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="stylesheet" href="./style.css?v=4">
 </head>
 <body>
   <main class="page">
@@ -14,7 +14,7 @@
 
       <div class="intro-text">
         <h1>Julian Bushlow</h1>
-        <p class="affiliation">Electrical and Computer Engineering<br>Cornell University</p>
+        <p class="affiliation">Electrical and Computer Engineering Student<br>Cornell University</p>
         <p class="contact">jb2698 [at] cornell.edu</p>
 
         <div class="social-links" aria-label="Links">
@@ -40,8 +40,8 @@
     </header>
 
     <div class="about">
-      <p> I'm currently a senior studying Electrical and Computer Engineering at Cornell University, where I am lucky to be advised by Prof. <a href="https://www.csl.cornell.edu/~zhiruz/" target="_blank" rel="noopener noreferrer">Zhiru Zhang</a> and Prof. <a href="https://abdelfattah-lab.github.io/" target="_blank" rel="noopener noreferrer">Mohamed Abdelfattah</a>. Outside of work, I enjoy playing ping pong, board games, and soccer, as well as baking and music (I play percussion). I'm also a big reader so feel free to reach out if you have recommendations! </p>
-      <p>My research focuses on computer architecture and efficient computing. I'm interested in how computational models, architectures, and physical implementations shape one another, especially for brain-inspired and adaptive systems. I work on specialized hardware and tools that make these systems easier to generate, evaluate, and implement.</p>
+      <p>I'm currently a senior studying Electrical and Computer Engineering at Cornell University, where I work with Prof. <a href="https://www.csl.cornell.edu/~zhiruz/" target="_blank" rel="noopener noreferrer">Zhiru Zhang</a> and Prof. <a href="https://abdelfattah-lab.github.io/" target="_blank" rel="noopener noreferrer">Mohamed Abdelfattah</a>. Outside of work, I enjoy playing ping pong, board games, and soccer, as well as baking and music (I play percussion). I'm also a big reader so feel free to reach out if you have recommendations! </p>
+      <p>My research interests are in computer architecture and efficient computing. I'm interested in how computational models, architectures, and physical implementations can shape each other, especially for brain-inspired and adaptive edge systems. I work on specialized hardware and tools that make these systems easier to generate, evaluate, and implement.</p>
     </div>
 
     <section class="section" id="research">
@@ -50,20 +50,20 @@
       <article class="entry">
         <h3>Allo-Assisted ASIC Harness (AAAH)</h3>
         <p class="entry-subtitle">Zhang Research Group · Cornell University</p>
-        <p>I extended <a href="https://github.com/cornell-zhang/allo" target="_blank" rel="noopener noreferrer">Allo</a> to generate hierarchical ASIC implementations using information from its intermediate representation. The flow groups processing elements by function and connectivity, physically implements one representative from each group, and tiles the resulting macros automatically. On a 16 × 16 matrix-multiplication array, it reduced place-and-route runtime by more than 4× and peak memory use by over half; it also completed a 32 × 32 design that exhausted memory in a conventional flat flow.</p>
+        <p>Pushing a design from RTL through ASIC design flows takes a lot of tool time for large designs, even for ones with many repeated subsections for which the tools do a lot of redundant work. Hierarchical flows can remove the redundant work by making reusable macros and stamping them out on the chip, but figuring out which subsections to turn into macros is difficult manual work. I extended <a href="https://github.com/cornell-zhang/allo" target="_blank" rel="noopener noreferrer">Allo</a> to be able to extract this information from its IR, combining it with a full two-stage hierarchical RTL&rarr;GDS ASIC flow. The resulting framework reduces tool time by more than 4× and cuts memory usage by 2× for a 16 × 16 systolic array. <a href="assets/aaah-presentation.pdf" target="_blank" rel="noopener noreferrer">Slides</a></p>
         <div class="project-gallery">
           <figure class="project-media project-media-wide project-media-allo-flow">
             <img src="assets/aaah-asic-flow.png" alt="Flowchart of the hierarchical AAAH ASIC implementation flow" width="1187" height="303" loading="lazy">
-            <figcaption>Hierarchical ASIC implementation flow.</figcaption>
+            <figcaption>Flow diagram of the two-stage hierarchical Allo-ASIC flow I built.</figcaption>
           </figure>
           <div class="project-media-row">
             <figure class="project-media">
               <img src="assets/aaah-pe-reuse.png" alt="Diagram showing processing elements reused across a spatial array" width="566" height="393" loading="lazy">
-              <figcaption>Processing-element reuse across a spatial array.</figcaption>
+              <figcaption>Large spatial accelerators (like this systolic array) often have many repeated elements which EDA tools nevertheless optimize separately.</figcaption>
             </figure>
             <figure class="project-media">
               <img src="assets/aaah-16x16-pe-array.png" alt="Physical design view of a 16 by 16 processing-element array in Cadence Innovus" width="386" height="400" loading="lazy">
-              <figcaption>Physical design of a 16 × 16 processing-element array.</figcaption>
+              <figcaption>Cadence Innovus view of a 16 × 16 matrix multiplication engine made with the AAAH flow.</figcaption>
             </figure>
           </div>
         </div>
@@ -72,11 +72,11 @@
       <article class="entry">
         <h3>Double Duty: FPGA Logic Block Architecture</h3>
         <p class="entry-subtitle">Abdelfattah Lab · Cornell Tech</p>
-        <p>Double Duty modifies FPGA logic blocks so that lookup tables and adder chains can operate independently and concurrently. For the journal extension, I analyzed input utilization and developed four input-sharing variants that reduce the architecture's added routing hardware while trading off area, timing, and packing flexibility. The full architecture improved area-delay product by 9.7% on average across three benchmark suites. <a href="https://doi.org/10.1145/3834569" target="_blank" rel="noopener noreferrer">Paper</a></p>
+        <p>FPGA workloads which heavily use adaptive logic module (ALM) adder chains have a tendency to map the lookup tables (LUTs) to wires to get inputs to the chains, meaning that a lot of powerful logic is underutilized. The Double Duty ALM architecture adds extra paths to allow inputs to directly reach the adders while LUTs operate independently and concurrently, at the cost of extra input pins and crossbars. I analyzed input pin utilization and developed architecture variants which share external routing crossbars while still getting the packing density benefits. <a href="https://doi.org/10.1145/3834569" target="_blank" rel="noopener noreferrer">Paper</a></p>
         <div class="project-gallery project-gallery-double-duty">
           <figure class="project-media">
             <img src="assets/double-duty-logic-module.png" alt="Double Duty FPGA arithmetic logic module architecture with added shared inputs" width="1736" height="1150" loading="lazy">
-            <figcaption>Arithmetic logic module with added shared inputs.</figcaption>
+            <figcaption>Double Duty ALM with added shared inputs.</figcaption>
           </figure>
           <figure class="project-media">
             <img src="assets/double-duty-crossbar.png" alt="Double Duty logic block showing the added crossbar inputs" width="728" height="848" loading="lazy">
@@ -88,7 +88,7 @@
       <article class="entry">
         <h3>Microemboli Detection with Transcranial Doppler</h3>
         <p class="entry-subtitle">Abdelfattah Lab · Cornell Tech / Weill Cornell Medicine</p>
-        <p>I helped launch a collaboration with Weill Cornell Medicine to develop a portable transcranial Doppler system for automatically detecting emboli. I built a parameterized signal-processing pipeline for raw ultrasound echoes and a simulation framework that models blood flow, scatterer motion, and echo generation. The synthetic data provided a way to test the pipeline before patient data was available and demonstrated that it could distinguish simulated embolic events from noise.</p>
+        <p>I helped launch a collaboration with Weill Cornell Medicine to develop an FPGA-based transcranial Doppler (TCD) system for automatically detecting emboli without specialized radiology technicians. While our collaborators work on building the device itself, I developed a signal-processing pipeline for the incoming ultrasound echoes and a simulation framework that models blood flow. The synthetic data gives us a way to test the pipeline before patient data is available and demonstrate that the models we deploy on the FPGA could distinguish simulated emboli from noise. <a href="assets/tcd-headset-poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a></p>
         <div class="project-gallery">
           <figure class="project-media project-media-wide">
             <img src="assets/microemboli-pipeline.png" alt="Signal-processing pipeline from phased-array ultrasound acquisition to emboli detection" width="1604" height="286" loading="lazy">
@@ -97,20 +97,20 @@
           <div class="project-media-row">
             <figure class="project-media">
               <img src="assets/microemboli-a-mode.png" alt="A-mode trace extracted from simulated M-mode ultrasound data" width="993" height="640" loading="lazy">
-              <figcaption>A-mode trace extracted from simulated M-mode data.</figcaption>
+              <figcaption>An example of the sort of echo data we acquire, in the middle of processing.</figcaption>
             </figure>
             <figure class="project-media">
               <img src="assets/microemboli-scatterers.gif" alt="Animation of simulated microemboli scatterers moving through a vessel" width="520" height="600" loading="lazy">
-              <figcaption>Simulated scatterer motion used to generate ultrasound echoes.</figcaption>
+              <figcaption>Simulated scatterer motion used to generate ultrasound echoes. The "blood" flow speeds up and slows down mimicking the cardiac cycle.</figcaption>
             </figure>
           </div>
         </div>
       </article>
 
       <article class="entry">
-        <h3>Spiking Neural Network ASIC</h3>
-        <p class="entry-subtitle">ECE 6745 · Cornell University</p>
-        <p>I co-designed a hardware-friendly leaky integrate-and-fire neuron model and a programmable accelerator for spiking neural network inference. I later expanded the project into a framework that generates networks, controllers, memory interfaces, randomized tests, and hierarchical ASIC layouts from a small set of parameters. We taped out a two-layer, eight-neuron design in TSMC 180 nm and trained a hardware-aware N-MNIST classifier to evaluate the system.</p>
+        <h3>Spiking Neural Network Tapeout &amp; Parameterized Hardware Generator</h3>
+        <p class="entry-subtitle">ECE 6745 Project · Cornell University</p>
+        <p>I co-designed a custom (hardware-friendly) leaky integrate-and-fire neuron model and used it to build a programmable accelerator for spiking neural network inference. I also set up a parameterized framework that generates networks, controllers, memory interfaces, and benchmarks for a given topology. To accelerate ASIC design, a hierarchical ASIC flow partitions the design into macros and tiles them on the chip. As an example of how the accelerator can be used, I trained a hardware-aware N-MNIST classifier. I taped out a two-layer, eight-neuron configuration in TSMC's 180 nm process.</p>
         <div class="project-gallery">
           <div class="project-media-row project-media-row-snn">
             <figure class="project-media">
@@ -146,12 +146,11 @@
 
     <section class="section compact" id="honors">
       <h2>Honors &amp; Awards</h2>
-      <p>Tau Beta Pi · Cornell Engineering</p>
-      <p>Eta Kappa Nu · IEEE honor society</p>
-      <p>Best Project/Presentation · CS 4782 SpikeGPT project</p>
+      <p>Tau Beta Pi · Cornell Engineering Chapter, VP</p>
+      <p>Eta Kappa Nu · Cornell Chapter</p>
     </section>
 
-    <footer>Last updated October 2026</footer>
+    <footer>Last updated November 2026</footer>
   </main>
 </body>
 </html>
